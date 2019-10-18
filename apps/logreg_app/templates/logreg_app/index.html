@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Login & Registration</title>
+</head>
+
+<body>
+    <div style="display:inline-block; vertical-align: top; margin:20px; width:40vw" class="lead">
+        <div name="error_div">   
+            {% if messages %}
+            <ul class="messages" list-style-type="none;" style="color:rgb(216, 20, 20)">
+                {% for message in messages %}
+                    {% if 'register' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li> {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <h1 class="display-4">Registration</h1>
+        <form action="/registration" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" name="first_name">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" name="dob">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" name="email">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" name="password">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="text" class="form-control" name="confirm_password">
+                <button type="submit" class="btn btn-info" style="margin-top:5px;">Register</button>
+            </div>
+        </form>
+    </div>
+    <div style="display:inline-block; vertical-align: top; margin:20px; width:40vw" class="lead">
+        <div name="error_div">
+            {% if messages %}
+            <ul class="messages" list-style-type="none;" style="color:rgb(216, 20, 20)">
+                {% for message in messages %}
+                    {% if 'login' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <h1 class="display-4">Login</h1>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email_login">Email</label>
+                <input type="text" class="form-control" name="email_login">
+                <label for="password_login">Password</label>
+                <input type="text" class="form-control" name="password_login">
+                <button type="submit" class="btn btn-info" style="margin-top:5px;">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Welcome</title>
+</head>
+
+<body style="margin:20px;">
+    <h1 class="display-4">Success! Welcome, {{ this_user.first_name }}!</h1>
+    <p class="lead" style="color:green">Successfully registered (or logged in)!</p>
+    <button class="btn btn-info" style="margin-top:5px;"><a href="/logout"
+            style="text-decoration: none; color:white;">Log Out</a></button>
+</body>
+
+</html>
